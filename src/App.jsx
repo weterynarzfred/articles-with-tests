@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import { useEffect } from "react";
 
 function App() {
-
   useEffect(() => {
     const update = () => {
       const width = window.innerWidth - document.documentElement.clientWidth;
