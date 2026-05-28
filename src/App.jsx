@@ -12,6 +12,21 @@ function App() {
     enableDragDropTouch();
   }, []);
 
+  useEffect(() => {
+    const update = () => {
+      const width = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.setProperty("--scrollbar-width", `${width}px`);
+    };
+    update();
+    window.addEventListener("resize", update);
+    const ro = new ResizeObserver(update);
+    ro.observe(document.body);
+    return () => {
+      window.removeEventListener("resize", update);
+      ro.disconnect();
+    };
+  }, []);
+
   return (
     <div>
       <Nav></Nav>
