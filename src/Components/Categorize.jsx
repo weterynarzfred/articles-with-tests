@@ -45,17 +45,15 @@ function CategoryBucket({ category, words, checked }) {
 
 function CatPool({ words }) {
   const { setNodeRef, isOver } = useDroppable({ id: "pool" });
-  return (
-    <div ref={setNodeRef} className={classNames("Categorize__pool", { "Categorize__pool--over": isOver })}>
-      {words.map(word => (
-        <DraggableCatWord
-          key={word.index}
-          word={word}
-          draggableId={`pool-${word.index}`}
-        />
-      ))}
-    </div>
-  );
+  return <div ref={setNodeRef} className={classNames("Categorize__pool", { "Categorize__pool--over": isOver })}>
+    {words.map(word => (
+      <DraggableCatWord
+        key={word.index}
+        word={word}
+        draggableId={`pool-${word.index}`}
+      />
+    ))}
+  </div>;
 }
 
 export default function Categorize({ words, children }) {
@@ -104,25 +102,23 @@ export default function Categorize({ words, children }) {
     }
   };
 
-  return (
-    <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <div className="Categorize">
-        <CatPool words={poolWords} />
-        <div className="Categorize__buckets">
-          {categories.map(cat => (
-            <CategoryBucket key={cat.index} category={cat} words={getCategoryWords(cat.index)} checked={checked} />
-          ))}
-        </div>
-        <div className="button-list">
-          <button className="button" onClick={() => { setPlacements({}); setChecked(false); }}>reset</button>
-          <button className="button" onClick={() => setChecked(p => !p)}>
-            {checked ? "stop checking" : "check answers"}
-          </button>
-        </div>
+  return <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <div className="Categorize">
+      <CatPool words={poolWords} />
+      <div className="Categorize__buckets">
+        {categories.map(cat => (
+          <CategoryBucket key={cat.index} category={cat} words={getCategoryWords(cat.index)} checked={checked} />
+        ))}
       </div>
-      <DragOverlay dropAnimation={null}>
-        {activeWord && <span className="WordChip WordChip--overlay">{activeWord.word}</span>}
-      </DragOverlay>
-    </DndContext>
-  );
+      <div className="button-list">
+        <button className="button" onClick={() => { setPlacements({}); setChecked(false); }}>reset</button>
+        <button className="button" onClick={() => setChecked(p => !p)}>
+          {checked ? "stop checking" : "check answers"}
+        </button>
+      </div>
+    </div>
+    <DragOverlay dropAnimation={null}>
+      {activeWord && <span className="WordChip WordChip--overlay">{activeWord.word}</span>}
+    </DragOverlay>
+  </DndContext>;
 }

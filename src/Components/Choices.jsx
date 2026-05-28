@@ -34,17 +34,13 @@ export default function Choices({ children, single }) {
     });
   });
 
-  return (
-    <div className="Choices">
-      <div className="Choices__options">{enhanced}</div>
-      {!ctx && (
-        <div className="button-list">
-          <button className="button" onClick={() => { setSelected(new Set()); setOwnChecked(false); }}>reset</button>
-          <button className="button" onClick={() => setOwnChecked(prev => !prev)}>
-            {ownChecked ? "stop checking" : "check answers"}
-          </button>
-        </div>
-      )}
-    </div>
-  );
+  return <div className="Choices">
+    <div className="Choices__options">{enhanced}</div>
+    {!ctx && <div className="button-list">
+      <button className="button" onClick={() => { setSelected(new Set()); setOwnChecked(false); }}>reset</button>
+      <button className="button" onClick={() => setOwnChecked(prev => !prev)}>
+        {ownChecked ? "stop checking" : "check answers"}
+      </button>
+    </div>}
+  </div>;
 }

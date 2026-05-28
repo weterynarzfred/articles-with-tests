@@ -22,15 +22,13 @@ function App() {
     };
   }, []);
 
-  return (
-    <div>
-      <Nav></Nav>
-      <Routes>
-        <Route path="/articles/*" element={<Articles />}></Route>
-        <Route path="/" element={<Home></Home>}></Route>
-      </Routes>
-    </div >);
-
+  return <div>
+    <Nav></Nav>
+    <Routes>
+      <Route path="/articles/*" element={<Articles />}></Route>
+      <Route path="/" element={<Home></Home>}></Route>
+    </Routes>
+  </div >;
 }
 
 export default App;

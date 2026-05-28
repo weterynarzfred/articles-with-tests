@@ -19,13 +19,11 @@ function DraggableWord({ word }) {
 
 function PoolArea({ available }) {
   const { setNodeRef, isOver } = useDroppable({ id: "pool" });
-  return (
-    <div ref={setNodeRef} className={classNames("DragAndDrop__words", { "DragAndDrop__words--over": isOver })}>
-      {available.map(word => (
-        <DraggableWord key={word.index} word={word} />
-      ))}
-    </div>
-  );
+  return <div ref={setNodeRef} className={classNames("DragAndDrop__words", { "DragAndDrop__words--over": isOver })}>
+    {available.map(word => (
+      <DraggableWord key={word.index} word={word} />
+    ))}
+  </div>;
 }
 
 export default function DragAndDrop({ words, children }) {
@@ -44,11 +42,10 @@ export default function DragAndDrop({ words, children }) {
 
   const handleDragStart = ({ active }) => {
     const id = String(active.id);
-    if (id.startsWith("pool-")) {
+    if (id.startsWith("pool-"))
       setActiveWord(available.find(w => w.index === parseInt(id.slice(5))) ?? null);
-    } else if (id.startsWith("zone-")) {
+    else if (id.startsWith("zone-"))
       setActiveWord(zones[parseInt(id.slice(5))] ?? null);
-    }
   };
 
   const handleDragEnd = ({ active, over }) => {
@@ -113,21 +110,19 @@ export default function DragAndDrop({ words, children }) {
   nextZoneId.current = 0;
   const enhancedTree = React.Children.map(children, enhance);
 
-  return (
-    <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <div className="DragAndDrop">
-        <PoolArea available={available} />
-        <div className="DragAndDrop__text">{enhancedTree}</div>
-        <div className="button-list">
-          <button className="button" onClick={() => { setAvailable(wordList); setZones({}); setIsCheckingAnswers(false); }}>reset</button>
-          <button className="button" onClick={() => setIsCheckingAnswers(prev => !prev)}>
-            {isCheckingAnswers ? "stop checking" : "check answers"}
-          </button>
-        </div>
+  return <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <div className="DragAndDrop">
+      <PoolArea available={available} />
+      <div className="DragAndDrop__text">{enhancedTree}</div>
+      <div className="button-list">
+        <button className="button" onClick={() => { setAvailable(wordList); setZones({}); setIsCheckingAnswers(false); }}>reset</button>
+        <button className="button" onClick={() => setIsCheckingAnswers(prev => !prev)}>
+          {isCheckingAnswers ? "stop checking" : "check answers"}
+        </button>
       </div>
-      <DragOverlay dropAnimation={null}>
-        {activeWord && <span className="WordChip WordChip--overlay">{activeWord.word}</span>}
-      </DragOverlay>
-    </DndContext>
-  );
+    </div>
+    <DragOverlay dropAnimation={null}>
+      {activeWord && <span className="WordChip WordChip--overlay">{activeWord.word}</span>}
+    </DragOverlay>
+  </DndContext>;
 }

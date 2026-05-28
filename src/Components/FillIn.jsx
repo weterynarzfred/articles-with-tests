@@ -28,15 +28,13 @@ export default function FillIn({ children }) {
   nextBlankId.current = 0;
   const enhancedTree = React.Children.map(children, enhance);
 
-  return (
-    <div className="FillIn">
-      <div className="FillIn__text">{enhancedTree}</div>
-      <div className="button-list">
-        <button className="button" onClick={() => { setValues({}); setIsCheckingAnswers(false); }}>reset</button>
-        <button className="button" onClick={() => setIsCheckingAnswers(prev => !prev)}>
-          {isCheckingAnswers ? "stop checking" : "check answers"}
-        </button>
-      </div>
+  return <div className="FillIn">
+    <div className="FillIn__text">{enhancedTree}</div>
+    <div className="button-list">
+      <button className="button" onClick={() => { setValues({}); setIsCheckingAnswers(false); }}>reset</button>
+      <button className="button" onClick={() => setIsCheckingAnswers(prev => !prev)}>
+        {isCheckingAnswers ? "stop checking" : "check answers"}
+      </button>
     </div>
-  );
+  </div>;
 }

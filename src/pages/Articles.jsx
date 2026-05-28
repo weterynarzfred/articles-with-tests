@@ -51,27 +51,25 @@ export default function Article() {
 
   if (!Component) return <div id="Article">Loading…</div>;
 
-  return (
-    <div id="Article">
-      <div className="content">
-        <MDXProvider
-          components={{
-            Link,
-            DragAndDrop,
-            DropZone,
-            Choices,
-            Choice,
-            ChoiceSet,
-            Img,
-            Categorize,
-            Category,
-            FillIn,
-            Blank,
-          }}
-        >
-          <Component />
-        </MDXProvider>
-      </div>
+  return <div id="Article">
+    <div className="content">
+      <MDXProvider
+        components={{
+          Link,
+          DragAndDrop,
+          DropZone,
+          Choices,
+          Choice,
+          ChoiceSet,
+          Img,
+          Categorize,
+          Category,
+          FillIn,
+          Blank,
+        }}
+      >
+        <Component />
+      </MDXProvider>
     </div>
-  );
+  </div>;
 }
