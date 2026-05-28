@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ChoiceSetContext } from "./ChoiceSetContext";
 
-export default function Choices({ children }) {
+export default function Choices({ children, single }) {
   const ctx = useContext(ChoiceSetContext);
 
   const [selected, setSelected] = useState(new Set());
@@ -16,6 +16,7 @@ export default function Choices({ children }) {
   const toggle = (index) => {
     if (checked) return;
     setSelected(prev => {
+      if (single) return prev.has(index) ? new Set() : new Set([index]);
       const next = new Set(prev);
       if (next.has(index)) next.delete(index);
       else next.add(index);
