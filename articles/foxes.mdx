@@ -2,18 +2,22 @@
 
 This is an article about foxes with interactive elements.
 
-<Img src="./foxes.jpg" fullBleed />
+<Img src="./foxes.jpg" fullBleed alt="Four arctic fox cubs sitting in a row on a grassy tundra embankment, one with its mouth open." />
+
+## text input
+
+<FillIn>
+  Foxes belong to the genus <Blank answer="Vulpes" />, which includes several species such as the red fox, fennec fox, and Arctic fox. These animals are known for their intelligence and flexible behavior, allowing them to survive in many different habitats across the world.
+
+  Foxes are considered <Blank answer="omnivores;omnivore" />, which means their diet includes both animal and plant material. In addition to hunting small animals, they may also eat berries, fruits, and other vegetation when available, especially during seasons when prey is scarce.
+</FillIn>
 
 ## interactive drag and drop
 
-<DragAndDrop words="omnivores;Vulpes;nocturnal;communication;dens;Arctic;balance;adaptable;hearing;territory;camouflage;urban environments">
-  <Img src="./fox.jpg" float="right" />
-
-  Foxes belong to the genus <DropZone answer="Vulpes" />, which includes several species such as the red fox, fennec fox, and Arctic fox. These animals are known for their intelligence and flexible behavior, allowing them to survive in many different habitats across the world.
+<DragAndDrop words="omnivores;nocturnal;communication;dens;Arctic;balance;adaptable;hearing;territory;camouflage;urban environments">
+  <Img src="./fox.jpg" float="right" alt="A red fox resting on a large rock with eyes closed and head tilted upward, appearing content and relaxed, with a blurred snowy background." />
 
   Most foxes are primarily <DropZone answer="nocturnal" />, meaning they are active during the night. This behavior helps them avoid larger predators and human activity while increasing their chances of catching prey such as rodents, insects, and small birds.
-
-  Foxes are considered <DropZone answer="omnivores" />, which means their diet includes both animal and plant material. In addition to hunting small animals, they may also eat berries, fruits, and other vegetation when available, especially during seasons when prey is scarce.
 
   Their excellent sense of <DropZone answer="hearing" /> allows them to detect small movements beneath snow, grass, or soil. A fox can listen carefully and then perform a precise pounce, diving headfirst to capture hidden prey. Many fox species dig underground <DropZone answer="dens" /> where they rest, store food, and raise their young. These spaces may contain multiple entrances and tunnels, providing protection from predators and harsh weather.
 
@@ -34,8 +38,6 @@ You can check if the answers are correct by using the "check answers" button abo
 
 As you can see there is more content after the interactive element.
 
-<Img src="./fox.jpg" alt="A red fox resting on a large rock with eyes closed and head tilted upward, appearing content and relaxed, with a blurred snowy background." />
-
 ## questions
 
 <ChoiceSet>
@@ -54,13 +56,10 @@ As you can see there is more content after the interactive element.
     <Choice>vamp</Choice>
     <Choice>queen</Choice>
   </Choices>
-
-  3. Which of the following best describes where foxes typically live?
-  <Choices single>
-    <Choice>Only in dense rainforests</Choice>
-    <Choice>Only in Arctic tundra</Choice>
-    <Choice>Only in deserts</Choice>
-    <Choice>A wide range of habitats far from human settlements</Choice>
-    <Choice correct explanation="Foxes are highly adaptable and are found on every continent except Antarctica, thriving in wildly different environments – including urban areas.">A wide range of habitats, including forests, grasslands, and cities</Choice>
-  </Choices>
 </ChoiceSet>
+
+  3. Categorize habitats.
+  <Categorize words="forest;desert;arctic tundra;coral reef;grassland;deep ocean;mountains;open sea;Antarctica">
+    <Category label="Foxes can live here" answer="forest;desert;arctic tundra;grassland;mountains" />
+    <Category label="Foxes cannot live here" answer="coral reef;deep ocean;open sea;Antarctica" />
+  </Categorize>

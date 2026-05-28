@@ -10,23 +10,10 @@
     background-color: #0001;
     padding: 0.5rem;
     border-radius: 0.3rem;
+    transition: background-color 0.1s;
 
-    span {
-      min-width: 3rem;
-      height: 1.8rem;
-      display: inline-block;
-      padding: 0.1em 0.3em 0 0.3em;
-      background-color: #fff;
-      line-height: 1.4;
-      border-radius: 0.2rem;
-      box-shadow: 0.05rem 0.05rem 0 1px #0002;
-      transition: 0.1s;
-      cursor: grab;
-
-      &:hover {
-        background-color: #f5f5f5;
-        box-shadow: 0 0 0 1px #0005;
-      }
+    &--over {
+      background-color: #0002;
     }
   }
 
@@ -40,7 +27,6 @@
     > *:first-child {
       margin-top: 0;
     }
-
     > *:last-child {
       margin-bottom: 0;
     }
@@ -54,20 +40,55 @@
 }
 
 .DropZone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 3rem;
   height: 1.8rem;
-  display: inline-block;
-  padding: 0.1em 0.3em 0 0.3em;
-  background-color: #fff;
-  line-height: 1.4;
-  text-indent: 0;
+  border: 1px dashed #333;
   border-radius: 0.3rem;
-  box-shadow: 0.05rem 0.05rem 0.1rem #0002;
   margin: 0 0.05em;
+  text-indent: 0;
   transition: 0.1s;
 
   &--filled {
-    cursor: grab;
+    border-color: transparent;
+  }
+
+  &--over {
+    border-color: #888;
+    background-color: #0001;
+  }
+}
+
+.WordChip {
+  display: inline-block;
+  min-width: 3rem;
+  height: 1.8rem;
+  padding: 0.1em 0.3em 0 0.3em;
+  background-color: #fff;
+  line-height: 1.4;
+  border-radius: 0.2rem;
+  box-shadow: 0.05rem 0.05rem 0 1px #0002;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  white-space: nowrap;
+  transition: 0.1s;
+
+  &:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 0 0 1px #0005;
+  }
+
+  &--ghost {
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  &--overlay {
+    cursor: grabbing;
+    box-shadow: 0 0.15rem 0.5rem #0004;
   }
 
   &--correct {
@@ -78,11 +99,5 @@
   &--wrong {
     color: #900;
     background-color: #fee;
-  }
-
-  &--dragging,
-  &--filled:hover {
-    background-color: #f5f5f5;
-    box-shadow: 0 0 0 1px #0005;
   }
 }

@@ -8,6 +8,10 @@ import Choices from "../components/Choices";
 import Choice from "../components/Choice";
 import ChoiceSet from "../components/ChoiceSet";
 import Img from "../components/Img";
+import Categorize from "../components/Categorize";
+import Category from "../components/Category";
+import FillIn from "../components/FillIn";
+import Blank from "../components/Blank";
 
 const articles = import.meta.glob("../../articles/**/*.mdx");
 
@@ -59,6 +63,10 @@ export default function Article() {
             Choice,
             ChoiceSet,
             Img,
+            Categorize,
+            Category,
+            FillIn,
+            Blank,
           }}
         >
           <Component />

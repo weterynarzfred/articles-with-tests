@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import { enableDragDropTouch } from "@dragdroptouch/drag-drop-touch";
 
 import Articles from "./pages/Articles";
 import Nav from "./Components/Nav";
@@ -7,10 +6,6 @@ import Home from "./pages/Home";
 import { useEffect } from "react";
 
 function App() {
-
-  useEffect(() => {
-    enableDragDropTouch();
-  }, []);
 
   useEffect(() => {
     const update = () => {
