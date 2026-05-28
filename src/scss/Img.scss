@@ -24,6 +24,7 @@
     max-width: calc(100vw - var(--scrollbar-width, 0px));
     margin-left: 50%;
     transform: translateX(-50%);
+    border-radius: 0;
   }
 
   &--no-max-height {

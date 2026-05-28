@@ -4,8 +4,8 @@ export default function Nav() {
 
   return (
     <nav>
-      <div><Link to="/">Home Page</Link></div>
-      <div><Link to="/articles/biology">Biology</Link></div>
+      <div><Link to="/">home</Link></div>
+      <div><Link to="/articles/articles">articles</Link></div>
     </nav>
   );
 
