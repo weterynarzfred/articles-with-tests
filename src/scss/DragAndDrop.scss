@@ -43,11 +43,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 3rem;
-  height: 1.8rem;
+  min-width: 3em;
+  height: 1.2em;
   border: 1px dashed #333;
+  line-height: 1;
   border-radius: 0.3rem;
-  margin: 0 0.05em;
+  margin: -0.2em 0.05em;
   text-indent: 0;
   transition: 0.1s;
 
@@ -63,11 +64,11 @@
 
 .WordChip {
   display: inline-block;
-  min-width: 3rem;
-  height: 1.8rem;
+  min-width: 3em;
+  height: 1.2em;
   padding: 0.1em 0.3em 0 0.3em;
   background-color: #fff;
-  line-height: 1.4;
+  line-height: 1;
   border-radius: 0.2rem;
   box-shadow: 0.05rem 0.05rem 0 1px #0002;
   cursor: grab;
