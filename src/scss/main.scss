@@ -1,0 +1,119 @@
+/* general */
+@use "reset";
+
+/* components */
+@use "DragAndDrop";
+@use "Choices";
+
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Crimson Pro";
+  src: url("/fonts/CrimsonPro-VariableFont_wght.ttf") format("truetype");
+  font-weight: 200 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Crimson Pro";
+  src: url("/fonts/CrimsonPro-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 200 900;
+  font-style: italic;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+  background-color: #eee;
+  background-image: url("/media/bg-pattern.png");
+  background-size: 256px auto;
+  box-shadow: 0 0 20rem 0 #fff9 inset;
+}
+
+nav {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 1rem 1rem 1rem;
+  padding-top: 0.5rem;
+}
+
+h1 {
+  font-size: 40px;
+  color: black;
+}
+
+.content {
+  font-size: 1.2rem;
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 0 3rem 6rem 3rem;
+  font-family: "Crimson Pro", serif;
+
+  p {
+    text-indent: 1.4rem;
+  }
+}
+
+#Article {
+  text-align: left;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+a {
+  color: #555;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid #333;
+  }
+}
+
+.table-of-contents {
+  margin-top: 1rem;
+}
+
+img {
+  width: 50%;
+  display: block;
+  margin: 1rem auto;
+}
+
+.button-list {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  padding: 0.2em 1em 0.3em 1em;
+  background-color: #fff;
+  color: #555;
+  font-weight: 700;
+  border: 1px solid #bbb;
+  border-radius: 0.3rem;
+  box-shadow: 0.05rem 0.05rem 0.1rem #0001;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}
