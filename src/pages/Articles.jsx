@@ -7,6 +7,7 @@ import DropZone from "../components/DropZone";
 import Choices from "../components/Choices";
 import Choice from "../components/Choice";
 import ChoiceSet from "../components/ChoiceSet";
+import Img from "../components/Img";
 
 const articles = import.meta.glob("../../articles/**/*.mdx");
 
@@ -57,6 +58,7 @@ export default function Article() {
             Choices,
             Choice,
             ChoiceSet,
+            Img,
           }}
         >
           <Component />

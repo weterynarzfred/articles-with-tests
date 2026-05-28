@@ -1,0 +1,32 @@
+.Img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100dvh;
+  margin: 1rem auto;
+  border-radius: 0.3rem;
+
+  &--float-left {
+    float: left;
+    max-width: 40%;
+    margin: 0.2rem 1rem 0.2rem 0;
+  }
+
+  &--float-right {
+    float: right;
+    max-width: 40%;
+    margin: 0.2rem 0 0.2rem 1rem;
+  }
+
+  &--full-bleed {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &--no-max-height {
+    max-height: none;
+  }
+}
