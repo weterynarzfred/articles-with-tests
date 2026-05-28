@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return <div className="content">
-    <div className="table-of-contents"><h3>Contents</h3>
-      <Link to="/articles/biology">biology</Link>
-      <div className="button-list">
-        <Link to="/articles/foxes" className="button">drag and drop test</Link>
-      </div>
+    <h1>articles with tests</h1>
+    <p>Pretend there's something smart and informative written here.</p>
+    <div className="button-list">
+      <Link to="/articles/articles" className="button">go to the articles</Link>
     </div>
   </div>;
 }
