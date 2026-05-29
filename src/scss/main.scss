@@ -50,7 +50,7 @@ nav {
   display: flex;
   gap: 0.5rem;
   justify-content: flex-start;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem min(3rem, 5dvw);
   background-color: #fff;
 }
 
@@ -67,16 +67,29 @@ h4 {
 
 .content {
   display: flow-root;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2.5dvw, 1.5rem);
   margin: 0 auto;
   max-width: 60rem;
-  padding: 0 3rem 6rem 3rem;
+  padding: 0 min(3rem, 5dvw) max(6rem, 33dvh) min(3rem, 5dvw);
   font-family: "Crimson Pro", serif;
 
   p {
     text-indent: 1.4rem;
+  }
+
+  p,
+  ul,
+  ol {
     margin-top: 0.6rem;
     margin-bottom: 0.6rem;
+  }
+
+  div > p:first-child {
+    margin-top: 0;
+  }
+
+  div > p:last-child {
+    margin-bottom: 0;
   }
 
   li p,
@@ -88,7 +101,18 @@ h4 {
   h6 + p,
   ul + p,
   ol + p,
-  hr + p {
+  hr + p,
+  div + p,
+  h1 + * > p:first-child,
+  h2 + * > p:first-child,
+  h3 + * > p:first-child,
+  h4 + * > p:first-child,
+  h5 + * > p:first-child,
+  h6 + * > p:first-child,
+  ul + * > p:first-child,
+  ol + * > p:first-child,
+  hr + * > p:first-child,
+  div + * > p:first-child {
     text-indent: 0;
   }
 
@@ -155,7 +179,7 @@ img:not(.Img) {
   max-width: calc(100vw - var(--scrollbar-width, 0px));
   margin-left: 50%;
   transform: translateX(-50%);
-  padding: 2rem;
+  padding: 2rem min(3rem, 5dvw);
 
   a {
     position: relative;
@@ -217,6 +241,18 @@ img:not(.Img) {
       box-shadow:
         0.3rem 0.3rem 0.5rem #0005,
         0 0 2rem #fff inset;
+    }
+  }
+
+  @media (max-width: 850px) {
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+
+    a {
+      max-width: 14rem;
+
+      .link-title {
+        font-size: 1.5rem;
+      }
     }
   }
 }

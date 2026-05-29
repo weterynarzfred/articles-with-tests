@@ -1,16 +1,17 @@
 .DragAndDrop {
-  overflow: hidden;
-
   &__words {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.2rem;
     min-height: 2.5rem;
-    background-color: #0001;
+    background-color: #eee;
     padding: 0.5rem;
     border-radius: 0.3rem;
     transition: background-color 0.1s;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
     &--over {
       background-color: #0002;
