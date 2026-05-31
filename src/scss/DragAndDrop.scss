@@ -5,7 +5,7 @@
     align-items: center;
     gap: 0.2rem;
     min-height: 2.5rem;
-    background-color: #eee;
+    background-color: var(--c-surface-2);
     padding: 0.5rem;
     border-radius: 0.3rem;
     transition: background-color 0.1s;
@@ -14,7 +14,7 @@
     z-index: 1;
 
     &--over {
-      background-color: #0002;
+      background-color: var(--c-border);
     }
   }
 
@@ -46,7 +46,7 @@
   justify-content: center;
   min-width: 3em;
   height: 1.2em;
-  border: 1px dashed #333;
+  border: 1px dashed var(--c-border-2);
   line-height: 1;
   border-radius: 0.3rem;
   margin: -0.2em 0.05em;
@@ -59,8 +59,8 @@
   }
 
   &--over {
-    border-color: #888;
-    background-color: #0001;
+    border-color: var(--c-border-2);
+    background-color: var(--c-surface-2);
   }
 }
 
@@ -69,10 +69,10 @@
   min-width: 2em;
   height: 1.2em;
   padding: 0.1em 0.3em 0 0.3em;
-  background-color: #fff;
+  background-color: var(--c-surface);
   line-height: 1;
   border-radius: 0.2rem;
-  box-shadow: 0.05rem 0.05rem 0 1px #0002;
+  box-shadow: var(--c-chip-shadow);
   cursor: grab;
   user-select: none;
   touch-action: none;
@@ -80,8 +80,8 @@
   transition: 0.1s;
 
   &:hover {
-    background-color: #f5f5f5;
-    box-shadow: 0 0 0 1px #0005;
+    background-color: var(--c-surface-2);
+    box-shadow: var(--c-chip-shadow-hover);
   }
 
   &--ghost {
@@ -91,16 +91,16 @@
 
   &--overlay {
     cursor: grabbing;
-    box-shadow: 0 0.15rem 0.5rem #0004;
+    box-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.25);
   }
 
   &--correct {
-    color: #180;
-    background-color: #efe;
+    color: var(--c-correct);
+    background-color: var(--c-correct-bg);
   }
 
   &--wrong {
-    color: #900;
-    background-color: #fee;
+    color: var(--c-wrong);
+    background-color: var(--c-wrong-bg);
   }
 }

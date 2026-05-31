@@ -36,13 +36,96 @@
   font-style: italic;
 }
 
+/* ── theme variables ─────────────────────────────────────────────────── */
+
+:root {
+  --c-bg: #eeeeee;
+  --c-surface: #ffffff;
+  --c-surface-2: #f0f0f0;
+  --c-border: #cccccc;
+  --c-border-2: #888888;
+  --c-text: #222222;
+  --c-text-2: #555555;
+  --c-nav: #ffffff;
+  --c-vignette: 0 0 20rem 0 rgba(255, 255, 255, 0.6) inset;
+  --c-blockquote: #556677;
+  --c-grid-border: #999999;
+  --c-shadow: rgba(0, 0, 0, 0.3);
+  --c-shadow-glow: #fff;
+
+  --c-correct: #118800;
+  --c-correct-bg: #eeffee;
+  --c-correct-border: #33aa33;
+  --c-wrong: #990000;
+  --c-wrong-bg: #ffeeee;
+  --c-wrong-border: #cc3333;
+  --c-missed: #664400;
+  --c-missed-bg: #ffffcc;
+  --c-missed-border: #ccaa00;
+  --c-revealed: #004477;
+  --c-revealed-bg: #ddeeff;
+  --c-revealed-border: #4488aa;
+
+  --c-chip-shadow: 0.05rem 0.05rem 0 1px rgba(0, 0, 0, 0.12);
+  --c-chip-shadow-hover: 0 0 0 1px rgba(0, 0, 0, 0.3);
+  --c-bg-pattern: url("/media/bg-pattern.png");
+}
+
+@mixin dark {
+  --c-bg: #1c1c1e;
+  --c-surface: #050505;
+  --c-surface-2: #3a3a3a;
+  --c-border: #484848;
+  --c-border-2: #8e8e8e;
+  --c-text: #f2f2f2;
+  --c-text-2: #eeeeee;
+  --c-nav: #161616;
+  --c-vignette: 0 0 20rem 0 rgba(0, 0, 0, 0.6) inset;
+  --c-blockquote: #5e7a9e;
+  --c-grid-border: #484848;
+  --c-shadow: rgba(0, 0, 0, 0.5);
+  --c-shadow-glow: #fff1;
+
+  --c-correct: #30d158;
+  --c-correct-bg: #0d2318;
+  --c-correct-border: #1a5c30;
+  --c-wrong: #ff453a;
+  --c-wrong-bg: #2a0c0a;
+  --c-wrong-border: #6c1e1a;
+  --c-missed: #ffd60a;
+  --c-missed-bg: #2a2000;
+  --c-missed-border: #6c5400;
+  --c-revealed: #64d2ff;
+  --c-revealed-bg: #0a1e2a;
+  --c-revealed-border: #1a4a68;
+
+  --c-chip-shadow: 0.05rem 0.05rem 0 1px rgba(255, 255, 255, 0.08);
+  --c-chip-shadow-hover: 0 0 0 1px rgba(255, 255, 255, 0.2);
+  --c-bg-pattern: url("/media/bg-pattern-dark.png");
+
+  color-scheme: dark;
+}
+
+[data-theme="dark"] {
+  @include dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include dark;
+  }
+}
+
+/* ── base ────────────────────────────────────────────────────────────── */
+
 body {
   font-family: "Rubik", sans-serif;
   text-align: center;
-  background-color: #eee;
-  background-image: url("/media/bg-pattern.png");
+  background-color: var(--c-bg);
+  background-image: var(--c-bg-pattern);
   background-size: 256px auto;
-  box-shadow: 0 0 20rem 0 #fff9 inset;
+  box-shadow: var(--c-vignette);
+  color: var(--c-text);
   min-height: 100dvh;
 }
 
@@ -50,8 +133,9 @@ nav {
   display: flex;
   gap: 0.5rem;
   justify-content: flex-start;
+  align-items: center;
   padding: 0.5rem min(3rem, 5dvw);
-  background-color: #fff;
+  background-color: var(--c-nav);
 }
 
 h1 {
@@ -129,7 +213,7 @@ h4 {
     margin-left: 0;
     margin-right: 0;
     padding-left: 2rem;
-    border-left: 0.2rem solid #567;
+    border-left: 0.2rem solid var(--c-blockquote);
   }
 
   ul,
@@ -148,12 +232,12 @@ h4 {
 }
 
 a {
-  color: #555;
+  color: var(--c-text-2);
   text-decoration: none;
   border-bottom: 1px solid transparent;
 
   &:hover {
-    border-bottom: 1px solid #333;
+    border-bottom-color: var(--c-text);
   }
 }
 
@@ -173,16 +257,16 @@ img:not(.Img__image) {
 
 .button {
   padding: 0.2em 1em 0.3em 1em;
-  background-color: #fff;
-  color: #555;
+  background-color: var(--c-surface);
+  color: var(--c-text-2);
   font-weight: 700;
-  border: 1px solid #bbb;
+  border: none;
   border-radius: 0.3rem;
   box-shadow: 0.05rem 0.05rem 0.1rem #0001;
   transition: 0.2s;
 
   &:hover {
-    background-color: #f5f5f5;
+    background-color: var(--c-surface-2);
   }
 }
 
@@ -202,14 +286,14 @@ img:not(.Img__image) {
     width: 100%;
     max-width: 30rem;
     margin: 0 auto;
-    background-color: #0001;
-    border: 1px solid #999;
+    background-color: var(--c-surface);
+    border: 1px solid var(--c-grid-border);
     border-radius: 0.5rem;
     overflow: hidden;
     padding: 0.4rem;
     box-shadow:
-      0.2rem 0.2rem 0.5rem #0005,
-      0 0 2rem #fff0 inset;
+      0.2rem 0.2rem 0.5rem var(--c-shadow),
+      0 0 2rem transparent inset;
     transition: 0.1s;
 
     .link-title {
@@ -236,7 +320,7 @@ img:not(.Img__image) {
       position: relative;
       height: 0;
       padding-bottom: 133%;
-      border: 1px solid #999;
+      border: 1px solid var(--c-grid-border);
       border-radius: 0.3rem;
       overflow: hidden;
 
@@ -252,10 +336,10 @@ img:not(.Img__image) {
     }
 
     &:hover {
-      background-color: #0002;
+      background-color: var(--c-surface-2);
       box-shadow:
-        0.3rem 0.3rem 0.5rem #0005,
-        0 0 2rem #fff inset;
+        0.3rem 0.3rem 0.5rem var(--c-shadow),
+        0 0 2rem var(--c-shadow-glow) inset;
     }
   }
 
