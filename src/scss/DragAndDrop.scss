@@ -55,6 +55,7 @@
 
   &--filled {
     border-color: transparent;
+    min-width: 2em;
   }
 
   &--over {
@@ -65,7 +66,7 @@
 
 .WordChip {
   display: inline-block;
-  min-width: 3em;
+  min-width: 2em;
   height: 1.2em;
   padding: 0.1em 0.3em 0 0.3em;
   background-color: #fff;
