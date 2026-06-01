@@ -20,7 +20,6 @@ export default function Nav() {
   return (
     <nav>
       <div><Link to="/">home</Link></div>
-      <div><Link to="/articles/articles">articles</Link></div>
       <button
         className="button"
         onClick={toggle}

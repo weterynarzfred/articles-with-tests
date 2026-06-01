@@ -118,6 +118,8 @@
 
 /* ── base ────────────────────────────────────────────────────────────── */
 
+$sideBorder: 1rem;
+
 body {
   font-family: "Rubik", sans-serif;
   text-align: center;
@@ -134,7 +136,7 @@ nav {
   gap: 0.5rem;
   justify-content: flex-start;
   align-items: center;
-  padding: 0.5rem min(3rem, 5dvw);
+  padding: 0.5rem $sideBorder;
   background-color: var(--c-nav);
 }
 
@@ -154,7 +156,7 @@ h4 {
   font-size: clamp(1.2rem, 2.5dvw, 1.5rem);
   margin: 0 auto;
   max-width: 60rem;
-  padding: 0 min(3rem, 5dvw) max(6rem, 33dvh) min(3rem, 5dvw);
+  padding: 0 $sideBorder max(6rem, 33dvh) $sideBorder;
   font-family: "Crimson Pro", serif;
 
   p {
@@ -277,7 +279,7 @@ img:not(.Img__image) {
   max-width: calc(100vw - var(--scrollbar-width, 0px));
   margin-left: 50%;
   transform: translateX(-50%);
-  padding: 2rem min(3rem, 5dvw);
+  padding: 2rem $sideBorder;
 
   a {
     position: relative;
