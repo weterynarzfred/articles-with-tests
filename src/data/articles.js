@@ -1,0 +1,36 @@
+const articles = [
+  {
+    slug: "sugar-and-children",
+    title: "Sugar and Children",
+    image: "sugar-girl.jpg",
+    imageAlt: "A young woman in Gothic Lolita fashion sipping tea and holding a fork over a slice of strawberry shortcake at a vintage café table, surrounded by flowers, fine china, and a pastry display case.",
+    blurb: "Non-alarmist science-based take on sugar in child diet. Because while the difference between “natural” and “added” sugar is a well-meaning and sometimes even useful heuristic, it shouldn't be treated as anything more than that.",
+    tags: ["nutrition", "sugar", "parenting"],
+  },
+  {
+    slug: "crop-rotation",
+    title: "Crop Rotation",
+    image: "farmland.jpg",
+    imageAlt: "A winding dirt path alongside a weathered wooden fence through golden wheat fields, leading toward a distant farmhouse and the sea under a cloudy sky.",
+    blurb: "Overview of what crop rotation is, why it was used, and what the benefits are.",
+    tags: ["agriculture", "history"],
+  },
+  {
+    slug: "screens-and-children",
+    title: "Screens and Children",
+    image: "screen-witch.jpg",
+    imageAlt: "A cozy anime-style illustration of a young witch in a black star-patterned robe and a witch hat adorned with wildflowers, seated in a red velvet armchair and scrolling on her phone by candlelight.",
+    blurb: "Non-alarmist science-based take on children using screens. Because while the “screens are bad” is a well-meaning and sometimes even useful heuristic, it shouldn't be treated as anything more than that.",
+    tags: ["technology", "parenting"],
+  },
+  {
+    slug: "foxes",
+    title: "Foxes",
+    image: "fox.jpg",
+    imageAlt: "A red fox resting on a large rock with eyes closed and head tilted upward, appearing content and relaxed, with a blurred snowy background.",
+    blurb: "Basic information about foxes that every human should know.",
+    tags: ["animals", "nature", "fox"],
+  },
+];
+
+export default articles;

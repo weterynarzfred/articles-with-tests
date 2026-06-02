@@ -1,27 +1,51 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import articles from "../data/articles";
+
+const tagCounts = articles.flatMap(a => a.tags).reduce((acc, tag) => {
+  acc[tag] = (acc[tag] || 0) + 1;
+  return acc;
+}, {});
+const allTags = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a]);
 
 function Home() {
+  const [activeTag, setActiveTag] = useState(null);
+
+  const filtered = activeTag
+    ? articles.filter(a => a.tags.includes(activeTag))
+    : articles;
+
   return <div className="content">
-    <h1>articles with tests</h1>
-    <p>Pretend there's something smart and informative written here.</p>
+    <h1>you ever get bored and start writing articles?</h1>
+    <p>A collection of short articles with exercises that help retention. While they are not in-depth, they are hopefully both informative and a reading comprehension exercise.</p>
+
+    <div className="tag-filter">
+      {allTags.map(tag => (
+        <button
+          key={tag}
+          className={`tag-filter__tag${activeTag === tag ? " tag-filter__tag--active" : ""}`}
+          onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+        >
+          {tag}
+        </button>
+      ))}
+    </div>
 
     <div className="article-grid">
-      <Link to="/articles/sugar-and-children">
-        <div class="link-title">Sugar and Children</div>
-        <div class="link-cover"><img src="sugar-girl.jpg" alt="A young woman in Gothic Lolita fashion sipping tea and holding a fork over a slice of strawberry shortcake at a vintage café table, surrounded by flowers, fine china, and a pastry display case." /></div>
-      </Link>
-      <Link to="/articles/crop-rotation">
-        <div class="link-title">Crop Rotation</div>
-        <div class="link-cover"><img src="farmland.jpg" alt="A winding dirt path alongside a weathered wooden fence through golden wheat fields, leading toward a distant farmhouse and the sea under a cloudy sky." /></div>
-      </Link>
-      <Link to="/articles/screens-and-children">
-        <div class="link-title">Screens and Children</div>
-        <div class="link-cover"><img src="screen-witch.jpg" alt="A cozy anime-style illustration of a young witch in a black star-patterned robe and a witch hat adorned with wildflowers, seated in a red velvet armchair and scrolling on her phone by candlelight." /></div>
-      </Link>
-      <Link to="/articles/foxes">
-        <div class="link-title">Foxes</div>
-        <div class="link-cover"><img src="fox.jpg" alt="A red fox resting on a large rock with eyes closed and head tilted upward, appearing content and relaxed, with a blurred snowy background." /></div>
-      </Link>
+      {filtered.map(article => (
+        <Link key={article.slug} to={`/articles/${article.slug}`}>
+          <div className="link-cover">
+            <img src={article.image} alt={article.imageAlt} />
+            <div className="link-title">{article.title}</div>
+          </div>
+          <div className="link-meta">
+            <div className="link-meta__tags">
+              {article.tags.map(tag => <div key={tag} className="link-meta__tag">{tag}</div>)}
+            </div>
+            <div className="link-meta__blurb">{article.blurb}</div>
+          </div>
+        </Link>
+      ))}
     </div>
 
   </div>;

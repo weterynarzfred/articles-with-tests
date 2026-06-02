@@ -20,6 +20,7 @@ export default function Nav() {
   return (
     <nav>
       <div><Link to="/">home</Link></div>
+      <div><Link to="https://weterynarzfred.github.io/articles-with-tests/" target="_blank" rel="noopener noreferrer">source code</Link></div>
       <button
         className="button"
         onClick={toggle}
