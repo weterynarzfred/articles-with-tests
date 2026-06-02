@@ -1,11 +1,19 @@
 const articles = [
   {
+    slug: "stellar-evolution",
+    title: "Stellar Evolution",
+    image: "milky-way.jpg",
+    imageAlt: "Milky Way galaxy",
+    blurb: "Overview of how stars form, what elements they create, and how they end their existence.",
+    tags: ["astrophysics", "chemistry"],
+  },
+  {
     slug: "sugar-and-children",
     title: "Sugar and Children",
     image: "sugar-girl.jpg",
     imageAlt: "A young woman in Gothic Lolita fashion sipping tea and holding a fork over a slice of strawberry shortcake at a vintage café table, surrounded by flowers, fine china, and a pastry display case.",
     blurb: "Non-alarmist science-based take on sugar in child diet. Because while the difference between “natural” and “added” sugar is a well-meaning and sometimes even useful heuristic, it shouldn't be treated as anything more than that.",
-    tags: ["nutrition", "sugar", "parenting"],
+    tags: ["nutrition", "parenting"],
   },
   {
     slug: "crop-rotation",
@@ -29,7 +37,7 @@ const articles = [
     image: "fox.jpg",
     imageAlt: "A red fox resting on a large rock with eyes closed and head tilted upward, appearing content and relaxed, with a blurred snowy background.",
     blurb: "Basic information about foxes that every human should know.",
-    tags: ["animals", "nature", "fox"],
+    tags: ["animals", "nature"],
   },
 ];
 

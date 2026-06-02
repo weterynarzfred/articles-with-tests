@@ -228,6 +228,18 @@ h4 {
     margin: 0;
   }
 
+  table {
+    border-collapse: collapse;
+    font-size: 0.8em;
+
+    th,
+    td {
+      border: 1px solid var(--c-border);
+      padding: 0.2em 0.5em;
+      vertical-align: top;
+    }
+  }
+
   .date {
     font-size: 0.8em;
     margin-bottom: 2rem;
