@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import articles from "../data/articles";
+import articles from "../../articles/articles.js";
 
 const tagCounts = articles.flatMap(a => a.tags).reduce((acc, tag) => {
   acc[tag] = (acc[tag] || 0) + 1;

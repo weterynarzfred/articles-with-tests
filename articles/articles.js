@@ -1,4 +1,4 @@
-const articles = [
+export default [
   {
     slug: "stellar-evolution",
     title: "Stellar Evolution",
@@ -40,5 +40,3 @@ const articles = [
     tags: ["animals", "nature"],
   },
 ];
-
-export default articles;

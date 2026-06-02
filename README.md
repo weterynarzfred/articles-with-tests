@@ -4,34 +4,30 @@ A serverless site for educational articles with embedded interactive exercises. 
 
 ---
 
-## Custom MDX components
+## Adding an article
 
-### `<Img>`
+**1. Create `articles/<slug>.mdx`**
 
-Replaces the standard markdown image to add layout and sizing options.
+The slug must contain only lowercase letters, numbers, and hyphens.
 
-```mdx
-<Img src="./fox.jpg" alt="a red fox" />
-<Img src="./fox.jpg" float="left" width={35} />
-<Img src="./fox.jpg" float="right" />
-<Img src="./fox.jpg" fullBleed />
-<Img src="./fox.jpg" noMaxHeight />
-<Img src="./fox.jpg" eager />
+**2. Add an entry to `articles/articles.js`**
+
+```js
+{
+  slug: "your-slug",   // must match the .mdx filename (without extension)
+  title: "Your Title",
+  image: "cover.jpg",  // file in /public
+  imageAlt: "Alt text for the cover image",
+  blurb: "One or two sentences shown on the home page.",
+  tags: ["tag-one", "tag-two"],
+}
 ```
 
-| Prop          | Type                  | Default | Description                                                   |
-| ------------- | --------------------- | ------- | ------------------------------------------------------------- |
-| `src`         | string                | —       | Image path                                                    |
-| `alt`         | string                | `""`    | Alt text                                                      |
-| `float`       | `"left"` \| `"right"` | —       | Float image left or right, text wraps around it               |
-| `width`       | number                | —       | Max width as % of content column (e.g. `{40}`)                |
-| `fullBleed`   | boolean               | —       | Extend to full viewport width, breaking out of content column |
-| `noMaxHeight` | boolean               | —       | Disable the default `max-height: 100dvh` constraint           |
-| `eager`       | boolean               | —       | Disable lazy loading                                          |
-
-Plain markdown images (`![alt](src)`) still work if needed.
+Tags are collected automatically from this file — the home page filter updates without any extra steps.
 
 ---
+
+## Custom MDX components for the articles
 
 ### `<DragAndDrop>` + `<DropZone>`
 
@@ -57,8 +53,6 @@ A passage with blanks the user fills by dragging words from a pool.
 | -------- | ------ | ------------------------------- |
 | `answer` | string | The correct word for this blank |
 
----
-
 ### `<FillIn>` + `<Blank>`
 
 A passage with blanks the user fills by typing. Multiple accepted answers can be separated with `;`. Comparison is case-insensitive and trims whitespace.
@@ -77,8 +71,6 @@ A passage with blanks the user fills by typing. Multiple accepted answers can be
 | `answer` | string | Correct answer(s), semicolon-separated |
 
 When checking: correct answers turn green, wrong answers turn red with strikethrough and the correct answer shown next to it.
-
----
 
 ### `<Choices>` + `<Choice>`
 
@@ -124,8 +116,6 @@ Wraps multiple `<Choices>` blocks so they share a single check/reset button bar.
 </ChoiceSet>
 ```
 
----
-
 ### `<Categorize>` + `<Category>`
 
 A drag-and-drop exercise where the user sorts words into labelled buckets.
@@ -151,3 +141,28 @@ A drag-and-drop exercise where the user sorts words into labelled buckets.
 | `answer` | string | Semicolon-separated words that belong in this bucket |
 
 Words can be dragged between buckets and back to the pool. Checking marks each placed word green or red in place.
+
+### `<Img>`
+
+Replaces the standard markdown image to add layout and sizing options.
+
+```mdx
+<Img src="./fox.jpg" alt="a red fox" />
+<Img src="./fox.jpg" float="left" width={35} />
+<Img src="./fox.jpg" float="right" />
+<Img src="./fox.jpg" fullBleed />
+<Img src="./fox.jpg" noMaxHeight />
+<Img src="./fox.jpg" eager />
+```
+
+| Prop          | Type                  | Default | Description                                                   |
+| ------------- | --------------------- | ------- | ------------------------------------------------------------- |
+| `src`         | string                | —       | Image path                                                    |
+| `alt`         | string                | `""`    | Alt text                                                      |
+| `float`       | `"left"` \| `"right"` | —       | Float image left or right, text wraps around it               |
+| `width`       | number                | —       | Max width as % of content column (e.g. `{40}`)                |
+| `fullBleed`   | boolean               | —       | Extend to full viewport width, breaking out of content column |
+| `noMaxHeight` | boolean               | —       | Disable the default `max-height: 100dvh` constraint           |
+| `eager`       | boolean               | —       | Disable lazy loading                                          |
+
+Plain markdown images (`![alt](src)`) still work if needed.
