@@ -118,7 +118,7 @@
 
 /* ── base ────────────────────────────────────────────────────────────── */
 
-$sideBorder: 1rem;
+$sideBorder: clamp(0.6rem, 1.2dvw, 1.2rem);
 
 body {
   font-family: "Rubik", sans-serif;
@@ -141,7 +141,7 @@ nav {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 4dvw, 2.5rem);
 }
 
 h1,
@@ -153,11 +153,16 @@ h4 {
 
 .content {
   display: flow-root;
-  font-size: clamp(1.2rem, 2.5dvw, 1.5rem);
+  font-size: clamp(1rem, 2.5dvw, 1.5rem);
   margin: 0 auto;
   max-width: 60rem;
   padding: 0 $sideBorder max(6rem, 33dvh) $sideBorder;
+  text-align: left;
   font-family: "Crimson Pro", serif;
+
+  h1 {
+    text-align: center;
+  }
 
   p {
     text-indent: 1.4rem;
@@ -222,13 +227,11 @@ h4 {
     padding-left: 1em;
     margin: 0;
   }
-}
 
-#Article {
-  text-align: left;
-
-  h1 {
-    text-align: center;
+  .date {
+    font-size: 0.8em;
+    margin-bottom: 2rem;
+    font-style: italic;
   }
 }
 
@@ -277,10 +280,11 @@ img:not(.Img__image) {
   justify-content: center;
   gap: 0.4rem;
   margin: 2rem 0 0rem 0;
+  font-size: clamp(0.8rem, 1.2dvw, 1rem);
 
   &__tag {
     font-family: "Rubik", sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.8em;
     padding: 0.2em 0.8em 0.25em;
     border: none;
     cursor: pointer;
@@ -308,7 +312,7 @@ img:not(.Img__image) {
 .article-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  gap: 1rem;
+  gap: $sideBorder;
   width: calc(100vw - var(--scrollbar-width, 0px));
   max-width: calc(100vw - var(--scrollbar-width, 0px));
   margin-left: 50%;
@@ -325,7 +329,7 @@ img:not(.Img__image) {
     border: 1px solid var(--c-grid-border);
     border-radius: 0.5rem;
     overflow: hidden;
-    padding: 0.4rem;
+    padding: clamp(0.2rem, 0.4dvw, 0.4rem);
     box-shadow:
       0.2rem 0.2rem 0.5rem var(--c-shadow),
       0 0 2rem transparent inset;
@@ -359,7 +363,7 @@ img:not(.Img__image) {
         padding: 0.2rem 0.8rem;
         color: #fff;
         font-weight: 700;
-        font-size: 2.5rem;
+        font-size: clamp(1.5rem, 4dvw, 2.5rem);
         text-align: center;
         z-index: 1;
         text-shadow:
@@ -375,7 +379,7 @@ img:not(.Img__image) {
       flex-direction: column;
       gap: 0.5rem;
       padding: 0.6rem 0.3rem 0.3rem 0.3rem;
-      font-size: 1rem;
+      font-size: clamp(0.8rem, 1.2dvw, 1rem);
       text-align: left;
 
       &__tags {
@@ -383,9 +387,10 @@ img:not(.Img__image) {
         flex-wrap: wrap;
         gap: 0.4em;
         opacity: 0.8;
-        font-size: 0.8rem;
+        font-size: 0.8em;
         font-family: "Rubik", sans-serif;
       }
+
       &__tag {
         &::before {
           content: "#";
@@ -400,15 +405,19 @@ img:not(.Img__image) {
     }
   }
 
-  @media (max-width: 850px) {
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  @media (max-width: 1400px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 
-    a {
-      max-width: 14rem;
+  @media (max-width: 1080px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
-      .link-title {
-        font-size: 1.5rem;
-      }
-    }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 310px) {
+    grid-template-columns: 1fr;
   }
 }
