@@ -3,13 +3,15 @@ import react from '@vitejs/plugin-react-swc';
 import mdx from "@mdx-js/rollup";
 import remarkGfm from "remark-gfm";
 import remarkSmartypants from "remark-smartypants";
+import remarkFrontmatter from "remark-frontmatter";
 import rehypeSlug from "rehype-slug";
+import articlesPlugin from "./vite-plugin-articles.js";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    articlesPlugin(),
     mdx({
-      remarkPlugins: [remarkGfm, remarkSmartypants],
+      remarkPlugins: [remarkFrontmatter, remarkGfm, remarkSmartypants],
       rehypePlugins: [rehypeSlug],
       providerImportSource: "@mdx-js/react",
     }),

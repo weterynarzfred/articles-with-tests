@@ -121,6 +121,12 @@
         font-size: 0.8em;
       }
 
+      &__date {
+        margin-left: auto;
+        font-style: italic;
+        white-space: nowrap;
+      }
+
       &__tag {
         padding: 0;
         border: none;

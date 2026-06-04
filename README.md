@@ -6,24 +6,22 @@ A serverless site for educational articles with embedded interactive exercises. 
 
 ## Adding an article
 
-**1. Create `articles/<slug>.mdx`**
+Create `articles/<slug>.mdx`. The slug (filename without `.mdx`) must contain only lowercase letters, numbers, and hyphens.
 
-The slug must contain only lowercase letters, numbers, and hyphens.
+Add a frontmatter block at the top of the file:
 
-**2. Add an entry to `articles/articles.js`**
-
-```js
-{
-  slug: "your-slug",   // must match the .mdx filename (without extension)
-  title: "Your Title",
-  image: "cover.jpg",  // file in /public
-  imageAlt: "Alt text for the cover image",
-  blurb: "One or two sentences shown on the home page.",
-  tags: ["tag-one", "tag-two"],
-}
+```mdx
+---
+title: Your Title
+date: 2026-01-15
+image: articles/cover.jpg
+imageAlt: Alt text for the cover image.
+blurb: One or two sentences shown on the home page.
+tags: [tag-one, tag-two]
+---
 ```
 
-Tags are collected automatically from this file — the home page filter updates without any extra steps.
+That's it. The Vite plugin reads all `.mdx` frontmatter at build time and generates the article list automatically. Articles are sorted by `date` descending. The home page tag filter updates without any extra steps.
 
 ---
 

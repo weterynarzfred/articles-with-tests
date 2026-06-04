@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import articles from "../../articles/articles.js";
+import articles from "virtual:articles";
 
 const tagCounts = articles.flatMap(a => a.tags).reduce((acc, tag) => {
   acc[tag] = (acc[tag] || 0) + 1;
@@ -48,6 +48,7 @@ function ArticleGrid() {
                   {tag}
                 </button>
               ))}
+              {article.date && <span className="link-meta__date">{article.date}</span>}
             </div>
             <div className="link-meta__blurb">{article.blurb}</div>
           </div>
