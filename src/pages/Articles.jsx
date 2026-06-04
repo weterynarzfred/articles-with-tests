@@ -37,6 +37,7 @@ export default function Article() {
       return;
     }
 
+    window.scrollTo(0, 0);
     const meta = articleList.find(a => a.slug === currentSlug);
     document.title = meta?.title ?? currentSlug;
 
@@ -58,15 +59,13 @@ export default function Article() {
     <div className="content">
       <MDXProvider
         components={{
-          hr: () => (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 308.27 11.47" className="separator">
-              <polygon points="0.33,5.74 3.03,3.03 5.74,5.74 3.03,8.44" />
-              <polygon points="302.53,5.74 305.24,3.03 307.94,5.74 305.24,8.44" />
-              <polygon points="148.73,5.74 154.13,0.33 159.54,5.74 154.13,11.14" />
-              <line x1="166.82" y1="5.74" x2="297.55" y2="5.74" />
-              <line x1="10.71" y1="5.74" x2="141.45" y2="5.74" />
-            </svg>
-          ),
+          hr: () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 308.27 11.47" className="separator">
+            <polygon points="0.33,5.74 3.03,3.03 5.74,5.74 3.03,8.44" />
+            <polygon points="302.53,5.74 305.24,3.03 307.94,5.74 305.24,8.44" />
+            <polygon points="148.73,5.74 154.13,0.33 159.54,5.74 154.13,11.14" />
+            <line x1="166.82" y1="5.74" x2="297.55" y2="5.74" />
+            <line x1="10.71" y1="5.74" x2="141.45" y2="5.74" />
+          </svg>,
           Link,
           DragAndDrop,
           DropZone,
