@@ -1,7 +1,7 @@
 .Img {
   display: block;
   margin: 1rem auto;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
 
   &__image {
     display: block;
@@ -25,12 +25,14 @@
     float: left;
     max-width: 40%;
     margin: 1rem 1rem 0.2rem 0;
+    border: 1px solid currentColor;
   }
 
   &--float-right {
     float: right;
     max-width: 40%;
     margin: 0.2rem 0 0.2rem 1rem;
+    border: 1px solid currentColor;
   }
 
   &--full-bleed {

@@ -1,55 +1,13 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import articles from "../../articles/articles.js";
-
-const tagCounts = articles.flatMap(a => a.tags).reduce((acc, tag) => {
-  acc[tag] = (acc[tag] || 0) + 1;
-  return acc;
-}, {});
-const allTags = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a]);
+import { useEffect } from "react";
+import ArticleGrid from "../Components/ArticleGrid";
 
 function Home() {
   useEffect(() => { document.title = "rand articles"; }, []);
 
-  const [activeTag, setActiveTag] = useState(null);
-
-  const filtered = activeTag
-    ? articles.filter(a => a.tags.includes(activeTag))
-    : articles;
-
   return <div className="content">
-    <h1>you ever got so bored you started writing articles?</h1>
+    <h1>You ever got so bored you started writing articles?</h1>
     <p>A collection of short articles with exercises that help retention. I wrote them mostly to help myself learn about the world. Maybe someone will find them useful as well. While they are not in-depth, they are hopefully both informative and a reading comprehension exercise.</p>
-
-    <div className="tag-filter">
-      {allTags.map(tag => (
-        <button
-          key={tag}
-          className={`tag-filter__tag${activeTag === tag ? " tag-filter__tag--active" : ""}`}
-          onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-        >
-          {tag}
-        </button>
-      ))}
-    </div>
-
-    <div className="article-grid">
-      {filtered.map(article => (
-        <Link key={article.slug} to={`/articles/${article.slug}`}>
-          <div className="link-cover">
-            <img src={article.image} alt={article.imageAlt} />
-            <div className="link-title">{article.title}</div>
-          </div>
-          <div className="link-meta">
-            <div className="link-meta__tags">
-              {article.tags.map(tag => <div key={tag} className="link-meta__tag">{tag}</div>)}
-            </div>
-            <div className="link-meta__blurb">{article.blurb}</div>
-          </div>
-        </Link>
-      ))}
-    </div>
-
+    <ArticleGrid />
   </div>;
 }
 
