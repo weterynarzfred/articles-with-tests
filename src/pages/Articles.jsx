@@ -14,6 +14,7 @@ import FillIn from "../components/FillIn";
 import Blank from "../components/Blank";
 
 import articleList from "virtual:articles";
+import { setPageMeta } from "../utils/pageMeta";
 
 const articles = import.meta.glob("../../articles/**/*.mdx");
 
@@ -40,8 +41,14 @@ export default function Article() {
 
     window.scrollTo(0, 0);
     const meta = articleList.find(a => a.slug === currentSlug);
-    document.title = meta?.title ?? currentSlug;
     setMeta(meta ?? null);
+    setPageMeta({
+      title: meta?.title ?? currentSlug,
+      description: meta?.blurb,
+      image: meta?.image,
+      type: "article",
+      date: meta?.date,
+    });
 
     loader()
       .then(mod => {
