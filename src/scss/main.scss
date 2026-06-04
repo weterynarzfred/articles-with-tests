@@ -372,6 +372,7 @@ img:not(.Img__image) {
     border-radius: 0.5rem;
     overflow: hidden;
     padding: clamp(0.2rem, 0.4dvw, 0.4rem);
+    text-decoration: none;
     box-shadow:
       0.2rem 0.2rem 0.5rem var(--c-shadow),
       0 0 2rem transparent inset;
