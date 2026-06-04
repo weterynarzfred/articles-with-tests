@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import Articles from "./pages/Articles";
 import Nav from "./Components/Nav";
@@ -6,6 +6,11 @@ import Home from "./pages/Home";
 import { useEffect } from "react";
 
 function App() {
+  const location = useLocation();
+  useEffect(() => {
+    document.body.focus();
+  }, [location.pathname]);
+
   useEffect(() => {
     const update = () => {
       const width = window.innerWidth - document.documentElement.clientWidth;
@@ -23,7 +28,7 @@ function App() {
 
   return <div>
     <button className="skip-to-content" onClick={() => document.getElementById("main-content")?.focus()}>Skip to content</button>
-    <Nav></Nav>
+    <Nav />
     <main id="main-content" tabIndex={-1}>
       <Routes>
         <Route path="/articles/*" element={<Articles />}></Route>
