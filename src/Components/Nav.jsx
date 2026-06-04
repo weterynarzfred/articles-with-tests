@@ -20,12 +20,12 @@ export default function Nav() {
   return (
     <nav>
       <div><Link to="/">home</Link></div>
+      <div className="nav-separator"></div>
       <div><Link to="https://weterynarzfred.github.io/articles-with-tests/" target="_blank" rel="noopener noreferrer">source code</Link></div>
       <button
         className={"color-theme-button" + (dark ? " color-theme-button--dark" : "")}
         onClick={toggle}
         aria-label="Toggle theme"
-        style={{ marginLeft: "auto" }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 889.95 444.97" className={dark ? "toggle-dark" : ""}>
           <g className="color-theme-button__dark-icon">
