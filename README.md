@@ -158,6 +158,7 @@ Replaces the standard markdown image to add layout and sizing options.
 | Prop          | Type                  | Default | Description                                                   |
 | ------------- | --------------------- | ------- | ------------------------------------------------------------- |
 | `src`         | string                | —       | Image path                                                    |
+| `caption`     | string                | —       | Caption displayed under the image                             |
 | `alt`         | string                | `""`    | Alt text                                                      |
 | `float`       | `"left"` \| `"right"` | —       | Float image left or right, text wraps around it               |
 | `width`       | number                | —       | Max width as % of content column (e.g. `{40}`)                |

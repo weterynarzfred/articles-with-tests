@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import articles from "../../articles/articles.js";
 
@@ -9,6 +9,8 @@ const tagCounts = articles.flatMap(a => a.tags).reduce((acc, tag) => {
 const allTags = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a]);
 
 function Home() {
+  useEffect(() => { document.title = "rand articles"; }, []);
+
   const [activeTag, setActiveTag] = useState(null);
 
   const filtered = activeTag
@@ -16,8 +18,8 @@ function Home() {
     : articles;
 
   return <div className="content">
-    <h1>you ever get bored and start writing articles?</h1>
-    <p>A collection of short articles with exercises that help retention. While they are not in-depth, they are hopefully both informative and a reading comprehension exercise.</p>
+    <h1>you ever got so bored you started writing articles?</h1>
+    <p>A collection of short articles with exercises that help retention. I wrote them mostly to help myself learn about the world. Maybe someone will find them useful as well. While they are not in-depth, they are hopefully both informative and a reading comprehension exercise.</p>
 
     <div className="tag-filter">
       {allTags.map(tag => (

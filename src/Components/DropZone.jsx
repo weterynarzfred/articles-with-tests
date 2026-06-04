@@ -8,8 +8,8 @@ export default function DropZone({ answer, zoneId, word, isCheckingAnswers }) {
     disabled: !word,
   });
 
-  const isCorrect = isCheckingAnswers && word?.word === answer;
-  const isWrong = isCheckingAnswers && !!word && word.word !== answer;
+  const isCorrect = isCheckingAnswers && answer.split(";").includes(word?.word);
+  const isWrong = isCheckingAnswers && !!word && !answer.split(";").includes(word.word);
 
   return <span
     ref={dropRef}

@@ -78,7 +78,7 @@
   --c-border: #484848;
   --c-border-2: #8e8e8e;
   --c-text: #f2f2f2;
-  --c-text-2: #eeeeee;
+  --c-text-2: #dddddd;
   --c-nav: #161616;
   --c-vignette: 0 0 20rem 0 rgba(0, 0, 0, 0.6) inset;
   --c-blockquote: #5e7a9e;
@@ -138,6 +138,16 @@ nav {
   align-items: center;
   padding: 0.5rem $sideBorder;
   background-color: var(--c-nav);
+
+  a {
+    color: var(--c-text-2);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom-color: var(--c-text);
+    }
+  }
 }
 
 h1 {
@@ -159,6 +169,7 @@ h4 {
   padding: 0 $sideBorder max(6rem, 33dvh) $sideBorder;
   text-align: left;
   font-family: "Crimson Pro", serif;
+  line-height: 1.45;
 
   h1 {
     text-align: center;
@@ -240,20 +251,39 @@ h4 {
     }
   }
 
+  a {
+    color: var(--c-text-2);
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--c-text);
+    }
+  }
+
+  .separator {
+    display: block;
+    width: 45%;
+    margin: 3em auto 1.5em;
+    color: var(--c-text-2);
+
+    polygon,
+    line {
+      fill: currentColor;
+      stroke: currentColor;
+      stroke-width: 1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    line {
+      fill: none;
+    }
+  }
+
   .date {
     font-size: 0.8em;
     margin-bottom: 2rem;
     font-style: italic;
-  }
-}
-
-a {
-  color: var(--c-text-2);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-
-  &:hover {
-    border-bottom-color: var(--c-text);
   }
 }
 
@@ -366,7 +396,7 @@ img:not(.Img__image) {
       }
 
       .link-title {
-        $shadowColor: #0009;
+        $shadowColor: #000c;
         position: absolute;
         top: 50%;
         left: 0;
@@ -382,7 +412,9 @@ img:not(.Img__image) {
           0 0 0.2em $shadowColor,
           0 0 0.5em $shadowColor,
           0 0 1em $shadowColor,
-          0 0 2em $shadowColor;
+          0 0 2em $shadowColor,
+          0 0 4em $shadowColor,
+          0 0 8em $shadowColor;
       }
     }
 
