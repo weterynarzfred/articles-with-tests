@@ -27,6 +27,7 @@ export default function Blank({ answer, blankId, value = "", onChange, isCheckin
     <input
       ref={inputRef}
       type="text"
+      aria-label="fill in the blank"
       value={value}
       onChange={e => onChange?.(e.target.value)}
       onKeyDown={e => { if (e.key === "Enter") onEnter?.(); }}

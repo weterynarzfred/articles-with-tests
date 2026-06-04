@@ -16,12 +16,13 @@ function ArticleGrid() {
     : articles;
 
   return <>
-    <div className="tag-filter">
+    <div className="tag-filter" role="group" aria-label="Filter by tag">
       {allTags.map(tag => (
         <button
           key={tag}
           className={`tag-filter__tag${activeTag === tag ? " tag-filter__tag--active" : ""}`}
           onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+          aria-pressed={activeTag === tag}
         >
           {tag}
         </button>
@@ -42,6 +43,7 @@ function ArticleGrid() {
                   key={tag}
                   className={`link-meta__tag${activeTag === tag ? " link-meta__tag--active" : ""}`}
                   onClick={e => { e.stopPropagation(); e.preventDefault(); setActiveTag(activeTag === tag ? null : tag); }}
+                  aria-pressed={activeTag === tag}
                 >
                   {tag}
                 </button>

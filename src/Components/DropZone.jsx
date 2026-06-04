@@ -13,6 +13,8 @@ export default function DropZone({ answer, zoneId, word, isCheckingAnswers, kbAc
 
   return <span
     ref={el => { dropRef(el); zoneRef?.(el); }}
+    role={kbActive ? "button" : undefined}
+    aria-label={kbActive ? (word ? `Drop zone: ${word.word} — press Enter to replace` : "empty drop zone — press Enter to place") : undefined}
     tabIndex={kbActive && !isCheckingAnswers ? 0 : -1}
     onKeyDown={e => {
       if (kbActive && !isCheckingAnswers && (e.key === "Enter" || e.key === " ")) {

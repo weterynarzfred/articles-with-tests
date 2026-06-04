@@ -10,6 +10,7 @@ function DraggableCatWord({ word, draggableId, checked, correct, kbSelected, onK
       {...attributes}
       {...listeners}
       tabIndex={checked || kbActive ? -1 : 0}
+      aria-pressed={kbSelected}
       onKeyDown={e => {
         if (!checked && (e.key === "Enter" || e.key === " ")) {
           e.preventDefault();
@@ -33,6 +34,8 @@ function CategoryBucket({ category, words, checked, kbActive, onKbPlace, bucketR
   return (
     <div
       className={classNames("CategoryBucket", { "CategoryBucket--kb-active": kbActive })}
+      role="button"
+      aria-label={category.label}
       tabIndex={kbActive ? 0 : -1}
       ref={bucketRef}
       onKeyDown={e => {
@@ -67,7 +70,7 @@ function CategoryBucket({ category, words, checked, kbActive, onKbPlace, bucketR
 
 function CatPool({ words, kbSelectedWord, onKbSelect, getChipRef }) {
   const { setNodeRef, isOver } = useDroppable({ id: "pool" });
-  return <div ref={setNodeRef} className={classNames("Categorize__pool", { "Categorize__pool--over": isOver })}>
+  return <div ref={setNodeRef} aria-label="word pool" className={classNames("Categorize__pool", { "Categorize__pool--over": isOver })}>
     {words.map(word => (
       <DraggableCatWord
         key={word.index}

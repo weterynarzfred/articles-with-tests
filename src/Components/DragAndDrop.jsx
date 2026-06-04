@@ -11,6 +11,7 @@ function DraggableWord({ word, kbSelected, onKbSelect, chipRef }) {
       {...attributes}
       {...listeners}
       tabIndex={0}
+      aria-pressed={kbSelected}
       onKeyDown={e => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();

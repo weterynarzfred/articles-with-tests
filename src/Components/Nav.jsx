@@ -26,6 +26,7 @@ export default function Nav() {
         className={"color-theme-button" + (dark ? " color-theme-button--dark" : "")}
         onClick={toggle}
         aria-label="Toggle theme"
+        aria-pressed={dark}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 889.95 444.97" className={dark ? "toggle-dark" : ""}>
           <g className="color-theme-button__dark-icon">
