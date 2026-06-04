@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
-export default function Blank({ answer, blankId, value = "", onChange, isCheckingAnswers }) {
+export default function Blank({ answer, blankId, value = "", onChange, isCheckingAnswers, inputRef, onEnter }) {
   const sizerRef = useRef(null);
   const [inputWidth, setInputWidth] = useState(null);
 
@@ -25,9 +25,11 @@ export default function Blank({ answer, blankId, value = "", onChange, isCheckin
       {value || " "}
     </span>
     <input
+      ref={inputRef}
       type="text"
       value={value}
       onChange={e => onChange?.(e.target.value)}
+      onKeyDown={e => { if (e.key === "Enter") onEnter?.(); }}
       disabled={isCheckingAnswers}
       style={inputWidth != null ? { width: `${inputWidth}px` } : undefined}
       className={classNames("Blank", {

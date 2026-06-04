@@ -34,9 +34,17 @@
   border: 1px solid var(--c-border);
   background-color: var(--c-surface);
   font-size: 0.8em;
+  font-family: inherit;
+  text-align: left;
+  width: 100%;
   cursor: pointer;
   transition: 0.1s;
   user-select: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--c-border-2);
+    outline-offset: 1px;
+  }
 
   &:hover {
     background-color: var(--c-surface-2);

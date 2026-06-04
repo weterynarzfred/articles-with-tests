@@ -62,6 +62,12 @@
     border-color: var(--c-border-2);
     background-color: var(--c-surface-2);
   }
+
+  &:focus-visible {
+    outline: none;
+    border-color: var(--c-text-2);
+    box-shadow: 0 0 0 2px var(--c-border-2);
+  }
 }
 
 .WordChip {
@@ -103,5 +109,10 @@
   &--wrong {
     color: var(--c-wrong);
     background-color: var(--c-wrong-bg);
+  }
+
+  &--kb-selected {
+    box-shadow: 0 0 0 2px var(--c-text-2);
+    background-color: var(--c-surface-2);
   }
 }
