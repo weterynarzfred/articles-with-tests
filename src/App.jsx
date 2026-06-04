@@ -22,12 +22,15 @@ function App() {
   }, []);
 
   return <div>
+    <button className="skip-to-content" onClick={() => document.getElementById("main-content")?.focus()}>Skip to content</button>
     <Nav></Nav>
-    <Routes>
-      <Route path="/articles/*" element={<Articles />}></Route>
-      <Route path="/" element={<Home></Home>}></Route>
-    </Routes>
-  </div >;
+    <main id="main-content" tabIndex={-1}>
+      <Routes>
+        <Route path="/articles/*" element={<Articles />}></Route>
+        <Route path="/" element={<Home></Home>}></Route>
+      </Routes>
+    </main>
+  </div>;
 }
 
 export default App;

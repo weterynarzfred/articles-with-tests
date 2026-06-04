@@ -1,5 +1,26 @@
 @use "variables" as *;
 
+.skip-to-content {
+  position: absolute;
+  top: 0;
+  left: $sideBorder;
+  padding: 0.4em 0.8em;
+  background-color: var(--c-surface);
+  color: var(--c-text);
+  font-family: "Rubik", sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 0 0 0.3rem 0.3rem;
+  box-shadow: var(--c-chip-shadow);
+  transform: translateY(-100%);
+  transition: transform 0.15s;
+  z-index: 100;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
+
 body {
   font-family: "Rubik", sans-serif;
   background-color: var(--c-bg);
