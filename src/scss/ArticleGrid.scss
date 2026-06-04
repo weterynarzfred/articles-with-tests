@@ -13,11 +13,16 @@
     font-size: 0.8em;
     padding: 0.2em 0.8em 0.25em;
     border: none;
+    border-radius: 0.2rem;
     cursor: pointer;
     background-color: var(--c-surface);
     color: var(--c-text-2);
     box-shadow: var(--c-chip-shadow);
     transition: 0.1s;
+
+    &::before {
+      content: "#";
+    }
 
     &:hover {
       background-color: var(--c-surface-2);
@@ -117,8 +122,24 @@
       }
 
       &__tag {
+        padding: 0;
+        border: none;
+        background: none;
+        color: inherit;
+        cursor: pointer;
+        font: inherit;
+        transition: 0.1s;
+
         &::before {
           content: "#";
+        }
+
+        &:hover {
+          color: var(--c-text);
+        }
+
+        &--active {
+          color: var(--c-text);
         }
       }
     }
@@ -126,6 +147,7 @@
     &:hover {
       background-color: var(--c-bg);
       box-shadow: 0.2rem 0.2rem 0.2rem var(--c-shadow);
+      color: var(--c-text-2);
     }
   }
 

@@ -56,7 +56,7 @@ export default function Article() {
   if (!Component) return <div id="Article">Loading…</div>;
 
   return <div id="Article">
-    <div className="content">
+    <main className="content" tabindex="-1">
       <MDXProvider
         components={{
           hr: () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 308.27 11.47" className="separator">
@@ -81,6 +81,6 @@ export default function Article() {
       >
         <Component />
       </MDXProvider>
-    </div>
+    </main>
   </div>;
 }

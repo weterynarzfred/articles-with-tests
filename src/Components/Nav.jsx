@@ -19,7 +19,7 @@ export default function Nav() {
 
   return (
     <nav>
-      <div><Link to="/">home</Link></div>
+      <div className="nav-home-link"><Link to="/" aria-label="home page"><img src="favicon.png" alt="" /></Link></div>
       <div className="nav-separator"></div>
       <div><Link to="https://weterynarzfred.github.io/articles-with-tests/" target="_blank" rel="noopener noreferrer">source code</Link></div>
       <button

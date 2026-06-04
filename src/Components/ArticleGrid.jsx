@@ -37,7 +37,15 @@ function ArticleGrid() {
           </div>
           <div className="link-meta">
             <div className="link-meta__tags">
-              {article.tags.map(tag => <div key={tag} className="link-meta__tag">{tag}</div>)}
+              {article.tags.map(tag => (
+                <button
+                  key={tag}
+                  className={`link-meta__tag${activeTag === tag ? " link-meta__tag--active" : ""}`}
+                  onClick={e => { e.stopPropagation(); e.preventDefault(); setActiveTag(activeTag === tag ? null : tag); }}
+                >
+                  {tag}
+                </button>
+              ))}
             </div>
             <div className="link-meta__blurb">{article.blurb}</div>
           </div>

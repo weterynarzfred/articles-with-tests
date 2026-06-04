@@ -40,7 +40,7 @@
 }
 
 :root {
-  --c-bg: #eeeae6;
+  --c-bg: #f3efe8;
   --c-surface: #ffffff;
   --c-surface-2: #ccc8c1;
   --c-border: #cccccc;
@@ -71,14 +71,14 @@
 }
 
 @mixin dark {
-  --c-bg: #171615;
-  --c-surface: #050505;
+  --c-bg: #0c0b0a;
+  --c-surface: #040404;
   --c-surface-2: #3a3a3a;
   --c-border: #484848;
   --c-border-2: #8e8e8e;
   --c-text: #f7efe4;
   --c-text-2: #cac3bb;
-  --c-nav: #161616;
+  --c-nav: #040404;
   --c-blockquote: #5e7a9e;
   --c-grid-border: #484848;
   --c-shadow: rgba(0, 0, 0, 1);
