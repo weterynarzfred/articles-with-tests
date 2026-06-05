@@ -33,7 +33,7 @@ function ArticleGrid() {
       {filtered.map(article => (
         <Link key={article.slug} to={`/articles/${article.slug}`}>
           <div className="link-cover">
-            <img src={article.image} alt={article.imageAlt} />
+            <img src={article.image} loading="lazy" alt={article.imageAlt} />
             <div className="link-title">{article.title}</div>
           </div>
           <div className="link-meta">

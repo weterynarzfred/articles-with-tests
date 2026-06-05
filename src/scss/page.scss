@@ -24,7 +24,7 @@
 body {
   font-family: "Rubik", sans-serif;
   background-color: var(--c-bg);
-  background-image: url("media/pattern_5.png");
+  background-image: var(--c-bg-pattern);
   color: var(--c-text);
   min-height: 100dvh;
 }

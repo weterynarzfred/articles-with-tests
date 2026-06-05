@@ -12,6 +12,13 @@ function App() {
   }, [location.pathname]);
 
   useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--c-bg-pattern",
+      `url(${import.meta.env.BASE_URL}media/pattern_5.png)`
+    );
+  }, []);
+
+  useEffect(() => {
     const update = () => {
       const width = window.innerWidth - document.documentElement.clientWidth;
       document.documentElement.style.setProperty("--scrollbar-width", `${width}px`);
