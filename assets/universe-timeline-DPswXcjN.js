@@ -1,4 +1,4 @@
-import{n as e,r as t}from"./index-BpYfWkA3.js";var n=e();function r(e){let r={a:`a`,em:`em`,h1:`h1`,h2:`h2`,hr:`hr`,li:`li`,ol:`ol`,p:`p`,strong:`strong`,ul:`ul`,...t(),...e.components},{Categorize:i,Category:o,Choice:s,ChoiceSet:c,Choices:l,DragAndDrop:u,DropZone:d,Img:f}=r;return i||a(`Categorize`,!0),o||a(`Category`,!0),s||a(`Choice`,!0),c||a(`ChoiceSet`,!0),l||a(`Choices`,!0),u||a(`DragAndDrop`,!0),d||a(`DropZone`,!0),f||a(`Img`,!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(r.h1,{id:`the-history-of-the-universe`,children:`The history of the universe`}),`
+import{n as e,r as t}from"./index-xW8-H0w0.js";var n=e();function r(e){let r={a:`a`,em:`em`,h1:`h1`,h2:`h2`,hr:`hr`,li:`li`,ol:`ol`,p:`p`,strong:`strong`,ul:`ul`,...t(),...e.components},{Categorize:i,Category:o,Choice:s,ChoiceSet:c,Choices:l,DragAndDrop:u,DropZone:d,Img:f}=r;return i||a(`Categorize`,!0),o||a(`Category`,!0),s||a(`Choice`,!0),c||a(`ChoiceSet`,!0),l||a(`Choices`,!0),u||a(`DragAndDrop`,!0),d||a(`DropZone`,!0),f||a(`Img`,!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(r.h1,{id:`the-history-of-the-universe`,children:`The history of the universe`}),`
 `,(0,n.jsx)(r.p,{children:`Dating units:`}),`
 `,(0,n.jsxs)(r.ul,{children:[`
 `,(0,n.jsxs)(r.li,{children:[(0,n.jsx)(r.strong,{children:`Ga`}),` – gigaannum, a billion years ago,`]}),`
@@ -47,14 +47,5 @@ import{n as e,r as t}from"./index-BpYfWkA3.js";var n=e();function r(e){let r={a:
 `]}),`
 `,(0,n.jsxs)(r.li,{children:[`
 `,(0,n.jsxs)(r.p,{children:[`Naidu, R. P., et al. (2025). `,(0,n.jsx)(r.em,{children:`A cosmic miracle: a remarkably luminous galaxy at z = 14.44 confirmed with JWST.`}),` `,(0,n.jsx)(r.a,{href:`https://www.space.com/astronomy/cosmic-miracle-james-webb-space-telescope-discovers-the-earliest-galaxy-ever-seen`,children:`https://www.space.com/astronomy/cosmic-miracle-james-webb-space-telescope-discovers-the-earliest-galaxy-ever-seen`})]}),`
-`]}),`
-`,(0,n.jsxs)(r.li,{children:[`
-`,(0,n.jsxs)(r.p,{children:[`Madau, P., & Dickinson, M. (2014). `,(0,n.jsx)(r.em,{children:`Cosmic Star-Formation History.`}),` Annual Review of Astronomy and Astrophysics. `,(0,n.jsx)(r.a,{href:`https://www.annualreviews.org/doi/10.1146/annurev-astro-081811-125615`,children:`https://www.annualreviews.org/doi/10.1146/annurev-astro-081811-125615`})]}),`
-`]}),`
-`,(0,n.jsxs)(r.li,{children:[`
-`,(0,n.jsxs)(r.p,{children:[`Helmi, A., et al. (2018). `,(0,n.jsx)(r.em,{children:`The merger that led to the formation of the Milky Way’s inner stellar halo and thick disk.`}),` Nature. `,(0,n.jsx)(r.a,{href:`https://www.nature.com/articles/s41586-018-0625-x`,children:`https://www.nature.com/articles/s41586-018-0625-x`})]}),`
-`]}),`
-`,(0,n.jsxs)(r.li,{children:[`
-`,(0,n.jsxs)(r.p,{children:[`Canup, R. M. (2004). `,(0,n.jsx)(r.em,{children:`Dynamics of Lunar Formation.`}),` Annual Review of Astronomy and Astrophysics. `,(0,n.jsx)(r.a,{href:`https://www.annualreviews.org/doi/10.1146/annurev.astro.41.082201.113457`,children:`https://www.annualreviews.org/doi/10.1146/annurev.astro.41.082201.113457`})]}),`
 `]}),`
 `]})]})}function i(e={}){let{wrapper:i}={...t(),...e.components};return i?(0,n.jsx)(i,{...e,children:(0,n.jsx)(r,{...e})}):r(e)}function a(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}export{i as default};
