@@ -6,10 +6,12 @@ import remarkSmartypants from "remark-smartypants";
 import remarkFrontmatter from "remark-frontmatter";
 import rehypeSlug from "rehype-slug";
 import articlesPlugin from "./vite-plugin-articles.js";
+import imagesPlugin from "./vite-plugin-images.js";
 
 export default defineConfig({
   plugins: [
     articlesPlugin(),
+    imagesPlugin(),
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkGfm, remarkSmartypants],
       rehypePlugins: [rehypeSlug],

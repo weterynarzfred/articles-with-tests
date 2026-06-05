@@ -1,22 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MDXProvider } from "@mdx-js/react";
-
-import DragAndDrop from "../components/DragAndDrop";
-import DropZone from "../components/DropZone";
-import Choices from "../components/Choices";
-import Choice from "../components/Choice";
-import ChoiceSet from "../components/ChoiceSet";
-import Img from "../components/Img";
-import Categorize from "../components/Categorize";
-import Category from "../components/Category";
-import FillIn from "../components/FillIn";
-import Blank from "../components/Blank";
 
 import articleList from "virtual:articles";
 import { setPageMeta } from "../utils/pageMeta";
 
-const articles = import.meta.glob("../../articles/**/*.mdx");
+const articleModules = import.meta.glob("../../articles/**/*.mdx");
 
 export default function Article() {
   const { "*": slug } = useParams();
@@ -24,6 +13,12 @@ export default function Article() {
 
   const [Component, setComponent] = useState(null);
   const [meta, setMeta] = useState(null);
+  const [mdxComponents, setMdxComponents] = useState(null);
+
+  useEffect(() => {
+    import("../Components/articleComponents")
+      .then(mod => setMdxComponents(mod.default));
+  }, []);
 
   useEffect(() => {
     if (!safeSlug) {
@@ -33,7 +28,7 @@ export default function Article() {
 
     const currentSlug = safeSlug;
 
-    const loader = articles[`../../articles/${currentSlug}.mdx`];
+    const loader = articleModules[`../../articles/${currentSlug}.mdx`];
     if (!loader) {
       setComponent(() => () => <h1>Article not found</h1>);
       return;
@@ -62,7 +57,7 @@ export default function Article() {
       });
   }, [safeSlug]);
 
-  if (!Component) return <div id="Article">Loading…</div>;
+  if (!Component || !mdxComponents) return <div id="Article">Loading…</div>;
 
   return <div id="Article">
     <main className="content" tabIndex="-1">
@@ -84,17 +79,7 @@ export default function Article() {
             <line x1="166.82" y1="5.74" x2="297.55" y2="5.74" />
             <line x1="10.71" y1="5.74" x2="141.45" y2="5.74" />
           </svg>,
-          Link,
-          DragAndDrop,
-          DropZone,
-          Choices,
-          Choice,
-          ChoiceSet,
-          Img,
-          Categorize,
-          Category,
-          FillIn,
-          Blank,
+          ...mdxComponents,
         }}
       >
         <Component />
