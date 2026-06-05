@@ -2,6 +2,8 @@
 
 A serverless site for educational articles with embedded interactive exercises. Built with Vite + React + MDX. Articles live in `/articles/**/*.mdx` and are loaded dynamically by route.
 
+[Preview](https://weterynarzfred.github.io/articles-with-tests/)
+
 ---
 
 ## Adding an article
