@@ -17,9 +17,14 @@ export default function Nav() {
     localStorage.setItem("theme", next ? "dark" : "light");
   };
 
-  return (
-    <nav>
-      <div className="nav-home-link"><Link to="/" aria-label="home page"><img src="favicon.png" alt="" /></Link></div>
+  return <>
+    <nav className="nav-home-link">
+      <Link to="/" aria-label="home page">
+        <img src="favicon.png" alt="" />
+        <span>home</span>
+      </Link>
+    </nav>
+    <nav className="nav-right">
       <div className="nav-separator"></div>
       <div><Link to="https://github.com/weterynarzfred/articles-with-tests" target="_blank" rel="noopener noreferrer">source code</Link></div>
       <button
@@ -44,5 +49,5 @@ export default function Nav() {
 
       </button>
     </nav>
-  );
+  </>;
 }

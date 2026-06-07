@@ -33,7 +33,7 @@ function App() {
     };
   }, []);
 
-  return <div>
+  return <div className="App">
     <button className="skip-to-content" onClick={() => document.getElementById("main-content")?.focus()}>Skip to content</button>
     <Nav />
     <main id="main-content" tabIndex={-1}>
