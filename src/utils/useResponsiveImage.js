@@ -36,6 +36,11 @@ export function useResponsiveImage(src, eager = false) {
       return;
     }
 
+    if (import.meta.env.DEV) {
+      imgRef.current.src = BASE + normalized;
+      return;
+    }
+
     const srcset = buildSrcset(normalized);
     if (!srcset) {
       imgRef.current.src = BASE + normalized;

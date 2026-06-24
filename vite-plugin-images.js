@@ -31,7 +31,6 @@ async function buildSizesMap() {
 
 export default function imagesPlugin() {
   let sizesMap = null;
-  const devCache = new Map();
 
   return {
     name: "vite-plugin-images",
@@ -71,43 +70,9 @@ export default function imagesPlugin() {
       server.watcher.on("add", file => {
         if (IMAGE_EXTS.has(extname(file).toLowerCase())) {
           sizesMap = null;
-          devCache.clear();
           const mod = server.moduleGraph.getModuleById(RESOLVED_ID);
           if (mod) server.moduleGraph.invalidateModule(mod);
         }
-      });
-
-      server.middlewares.use(async (req, res, next) => {
-        const match = req.url?.match(/\/articles\/([^/?#]+)-(\d+)\.webp/);
-        if (!match) return next();
-
-        const [, name, widthStr] = match;
-        const width = parseInt(widthStr);
-        const cacheKey = `${name}-${width}`;
-
-        if (devCache.has(cacheKey)) {
-          res.setHeader("Content-Type", "image/webp");
-          res.setHeader("Cache-Control", "max-age=3600");
-          return res.end(devCache.get(cacheKey));
-        }
-
-        for (const ext of IMAGE_EXTS) {
-          const src = join(srcDir(), name + ext);
-          if (!existsSync(src)) continue;
-          try {
-            const buffer = await sharp(src)
-              .resize(width, null, { withoutEnlargement: true })
-              .webp({ quality: QUALITY })
-              .toBuffer();
-            devCache.set(cacheKey, buffer);
-            res.setHeader("Content-Type", "image/webp");
-            res.setHeader("Cache-Control", "max-age=3600");
-            return res.end(buffer);
-          } catch {
-            break;
-          }
-        }
-        next();
       });
     },
   };
